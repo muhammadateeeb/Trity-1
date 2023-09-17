@@ -1,5 +1,5 @@
-import os, sys
-from time import sleep
+import os
+import sys
 
 if not os.geteuid() == 0:
     sys.exit("\033[1;31mPlease run this script as root!\033[0m")
@@ -16,20 +16,20 @@ header = """
                  ||     ||
 """
 
-print header
-print "\033[1;36mOperating Systems Available:\033[1;36m "
-print "\n--------------------------"
-print "(1) Kali Linux / Ubuntu / Raspbian"
-print "--------------------------\n"
+print(header)
+print("\033[1;36mOperating Systems Available:\033[1;36m ")
+print("\n--------------------------")
+print("(1) Kali Linux / Ubuntu / Raspbian")
+print("--------------------------\n")
 
-option = raw_input("\033[0m[>] Select Operating System: \033[0m")
+option = input("\033[0m[>] Select Operating System: \033[0m")
 
 if option == "1":
-    print "\033[1;33m[*] Loading...\033[0m"
+    print("\033[1;33m[*] Loading...\033[0m")
     os.system('apt-get install python-pip')
     os.system('easy_install pip')
     import pip
-    
+
     os.system('sudo apt-get install libjpeg-dev libfreetype6 zlib1g-dev')
     os.system('pip2.7 install --upgrade beautifulsoup4')
     os.system('pip install google')
@@ -44,8 +44,8 @@ if option == "1":
     install2 = os.system("cp -R trity/ /opt/ && cp trity.py /opt/trity && cp run.sh /opt/trity && cp run.sh /usr/bin/trity && chmod +x /usr/bin/trity")
     os.system('apt-get install sendemail')
     os.system('apt-get install libncurses5')
-    pip.main(["install", "scapy", "pythonwhois", "BeautifulSoup", "requests", "mechanize", "google", "qrcode"])
-    print "\033[1;32m[!] Finished Installing! Run 'trity' to run program [!]\033[0m"
+    pip.main(["install", "scapy", "pythonwhois", "beautifulsoup4", "requests", "mechanize", "google", "qrcode"])
+    print("\033[1;32m[!] Finished Installing! Run 'trity' to run the program [!]\033[0m")
     sys.exit()
 else:
-    print "Whoops! Something went wrong!"
+    print("Whoops! Something went wrong!")
